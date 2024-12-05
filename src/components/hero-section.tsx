@@ -12,7 +12,7 @@ export default function HeroSection() {
     });
 
     useEffect(() => {
-        const targetDate = new Date('2025-02-05T19:00:00');
+        const targetDate = new Date('2025-02-08T19:00:00');
         const updateCountdown = () => {
             const now = new Date();
             const difference = targetDate.getTime() - now.getTime();
@@ -51,11 +51,11 @@ export default function HeroSection() {
             />
             <div className="absolute inset-0 bg-black opacity-50"></div>
             <div className="absolute text-center text-white">
-                <h1 className="text-3xl font-bold mb-6 text-white">
+                <h1 className="text-3xl font-bold mb-6 text-white pb-80">
                     ¡Estamos contando los días!
                 </h1>
                 <div
-                    className="flex flex-col items-center justify-center w-64 h-64 rounded-full translate-x-1/3"
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center w-64 h-64 rounded-full"
                     style={{
                         backgroundColor: '#898F64',
                         color: '#353A1B',
