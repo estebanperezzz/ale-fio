@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
@@ -36,38 +37,47 @@ export default function HeroSection() {
 
         const timer = setInterval(updateCountdown, 1000);
 
-        // Cleanup del timer cuando el componente se desmonte
         return () => clearInterval(timer);
     }, []);
 
     return (
         <div className="relative h-screen w-full bg-black flex items-center justify-center">
             <Image
-                src="/_DSC5024.jpg" // Cambiar por otra imagen si es necesario
+                src="/_DSC5024.jpg"
                 alt="Hero Image"
                 layout="fill"
                 objectFit="cover"
                 className="opacity-80"
             />
             <div className="absolute inset-0 bg-black opacity-50"></div>
-            <div className="absolute text-white text-center">
-                <h1 className="text-7xl font-bold mb-4">¡Estamos contando los días!</h1>
-                <div className="flex space-x-4 justify-center">
-                    <div className="text-center">
-                        <span className="text-6xl font-bold">{timeLeft.days}</span>
-                        <p className="text-2xl uppercase">Días</p>
-                    </div>
-                    <div className="text-center">
-                        <span className="text-6xl font-bold">{timeLeft.hours}</span>
-                        <p className="text-2xl uppercase">Hs</p>
-                    </div>
-                    <div className="text-center">
-                        <span className="text-6xl font-bold">{timeLeft.minutes}</span>
-                        <p className="text-2xl uppercase">Min</p>
-                    </div>
-                    <div className="text-center">
-                        <span className="text-6xl font-bold">{timeLeft.seconds}</span>
-                        <p className="text-2xl uppercase">Seg</p>
+            <div className="absolute text-center text-white">
+                <h1 className="text-3xl font-bold mb-6 text-white">
+                    ¡Estamos contando los días!
+                </h1>
+                <div
+                    className="flex flex-col items-center justify-center w-64 h-64 rounded-full translate-x-1/3"
+                    style={{
+                        backgroundColor: '#898F64',
+                        color: '#353A1B',
+                    }}
+                >
+                    <div className="flex space-x-6 text-center">
+                        <div>
+                            <span className="text-4xl font-bold">{timeLeft.days}</span>
+                            <p className="text-sm uppercase">Días</p>
+                        </div>
+                        <div>
+                            <span className="text-4xl font-bold">{timeLeft.hours}</span>
+                            <p className="text-sm uppercase">Hs</p>
+                        </div>
+                        <div>
+                            <span className="text-4xl font-bold">{timeLeft.minutes}</span>
+                            <p className="text-sm uppercase">Min</p>
+                        </div>
+                        <div>
+                            <span className="text-4xl font-bold">{timeLeft.seconds}</span>
+                            <p className="text-sm uppercase">Seg</p>
+                        </div>
                     </div>
                 </div>
             </div>
