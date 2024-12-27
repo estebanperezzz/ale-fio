@@ -7,10 +7,10 @@ import { Typography } from "@/components/ui/typography";
 
 export default function Countdown() {
     const [timeLeft, setTimeLeft] = useState({
-        dias: 0,
-        horas: 0,
-        minutos: 0,
-        segundos: 0,
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
     });
 
     const ref = React.useRef(null);
@@ -23,16 +23,16 @@ export default function Countdown() {
             const difference = targetDate.getTime() - now.getTime();
 
             if (difference <= 0) {
-                setTimeLeft({ dias: 0, horas: 0, minutos: 0, segundos: 0 });
+                setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
                 return;
             }
 
-            const dias = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const horas = Math.floor((difference / (1000 * 60 * 60)) % 24);
-            const minutos = Math.floor((difference / 1000 / 60) % 60);
-            const segundos = Math.floor((difference / 1000) % 60);
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((difference / 1000 / 60) % 60);
+            const seconds = Math.floor((difference / 1000) % 60);
 
-            setTimeLeft({ dias, horas, minutos, segundos });
+            setTimeLeft({ days, hours, minutes, seconds });
         };
 
         const timer = setInterval(updateCountdown, 1000);
@@ -58,7 +58,7 @@ export default function Countdown() {
 
     return (
         <Card className="w-full border-none rounded-none bg-gradient-to-l from-[#A1B290] to-[#4E6E5D]">
-            <CardContent className="p-12">
+            <CardContent className="p-4 sm:p-8 md:p-12">
                 <motion.div
                     ref={ref}
                     variants={containerVariants}
@@ -66,15 +66,15 @@ export default function Countdown() {
                     animate="visible"
                 >
                     <motion.div variants={itemVariants}>
-                        <Typography variant="h2" className="text-center text-[#EEEEEE] mb-8 font-georgia">
+                        <Typography variant="h3" className="text-center text-[#EEEEEE] mb-4 sm:mb-6 md:mb-8 font-georgia">
                             Bienvenidos a nuestra boda 😊
                         </Typography>
                     </motion.div>
-                    <div className="flex justify-center space-x-12 text-[#EEEEEE]">
+                    <div className="flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-12 text-[#EEEEEE]">
                         {Object.entries(timeLeft).map(([key, value]) => (
                             <motion.div key={key} className="text-center" variants={itemVariants}>
-                                <Typography variant="h1" className="font-bold font-montserrat">{value}</Typography>
-                                <Typography variant="h2" className="uppercase tracking-wider mt-2 font-montserrat">{key}</Typography>
+                                <Typography variant="h2" className="text-3xl sm:text-4xl md:text-5xl font-bold font-montserrat">{value}</Typography>
+                                <Typography variant="h4" className="text-xs sm:text-sm md:text-base uppercase tracking-wider mt-1 sm:mt-2 font-montserrat">{key}</Typography>
                             </motion.div>
                         ))}
                     </div>
