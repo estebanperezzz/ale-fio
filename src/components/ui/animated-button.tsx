@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { motion, HTMLMotionProps } from "motion/react"
+import { motion, HTMLMotionProps } from "framer-motion"
 import { Button as ButtonBase, ButtonProps } from "./button"
 import { cn } from "@/lib/utils"
 

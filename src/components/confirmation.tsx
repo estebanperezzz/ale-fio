@@ -4,7 +4,7 @@ import { CheckCircle } from 'lucide-react'
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { Typography } from "@/components/ui/typography"
-import { motion, useInView } from 'motion/react'
+import { motion, useInView } from 'framer-motion'
 import React from 'react'
 import Link from 'next/link'
 

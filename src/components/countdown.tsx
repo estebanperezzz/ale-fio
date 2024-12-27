@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card"
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { Typography } from "@/components/ui/typography";
 
 export default function Countdown() {
