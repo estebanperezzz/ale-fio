@@ -4,15 +4,21 @@ import { useState, useEffect, useRef } from 'react'
 import { Play, Pause, ArrowRight } from 'lucide-react'
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { motion, AnimatePresence } from 'framer-motion'
+import { useMusicPreference } from '@/contexts/MusicContext'
 
 export default function FloatingMusicButton() {
     const [isPlaying, setIsPlaying] = useState(false)
     const [showLabel, setShowLabel] = useState(true)
     const audioRef = useRef<HTMLAudioElement | null>(null)
+    const { musicPreference } = useMusicPreference()
 
     useEffect(() => {
         audioRef.current = new Audio('/laboda.mp3')
         audioRef.current.loop = true
+
+        if (musicPreference) {
+            audioRef.current.play().then(() => setIsPlaying(true)).catch(console.error)
+        }
 
         const timer = setTimeout(() => {
             setShowLabel(false)
@@ -25,7 +31,7 @@ export default function FloatingMusicButton() {
             }
             clearTimeout(timer)
         }
-    }, [])
+    }, [musicPreference])
 
     const togglePlay = async () => {
         if (audioRef.current) {
@@ -43,6 +49,8 @@ export default function FloatingMusicButton() {
             }
         }
     }
+
+    if (musicPreference === null) return null
 
     return (
         <div className="fixed bottom-4 right-4 z-50 flex items-center gap-2">

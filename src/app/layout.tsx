@@ -1,7 +1,10 @@
 import { Metadata } from 'next'
 import localFont from "next/font/local";
 import "./globals.css";
-import FloatingMusicButton from '@/components/floating-music-button'
+import { MusicProvider } from '@/contexts/MusicContext'
+import MusicPreferenceModal from '@/components/MusicPreferenceModal'
+import FloatingMusicButton from '@/components/FloatingMusicButton'
+import DynamicContent from '@/components/DynamicContent';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,8 +34,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
-        <FloatingMusicButton />
+        <MusicProvider>
+          <MusicPreferenceModal />
+          <DynamicContent>
+            {children}
+          </DynamicContent>
+          <FloatingMusicButton />
+        </MusicProvider>
       </body>
     </html>
   );
