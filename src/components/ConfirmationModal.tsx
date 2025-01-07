@@ -45,53 +45,55 @@ export function ConfirmationModal({ isOpen, onClose }: ConfirmationModalProps) {
   return (
     <>
       <Dialog open={isOpen} onOpenChange={onClose}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="sm:max-w-[425px] bg-gradient-to-r from-[#445F51] to-[#4E6E5D] border-none">
           <DialogHeader>
-            <DialogTitle>Confirmación de Asistencia</DialogTitle>
+            <DialogTitle className='text-white text-2xl italic'>Confirmación de Asistencia</DialogTitle>
           </DialogHeader>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <Label htmlFor="name">Nombre y Apellido</Label>
-              <Input id="name" value={name} onChange={(e) => setName(e.target.value)} required />
+              <Label htmlFor="name" className='text-white font-semibold'>Nombre y Apellido</Label>
+              <Input id="name" className='bg-white text-[#4e6e5d]' value={name} onChange={(e) => setName(e.target.value)} required />
             </div>
             <div>
-              <Label htmlFor="phone">Celular</Label>
-              <Input id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+              <Label htmlFor="phone" className='text-white font-semibold'>Celular</Label>
+              <Input id="phone" className='bg-white text-[#4e6e5d]' value={phone} onChange={(e) => setPhone(e.target.value)} required />
             </div>
             <RadioGroup value={attendance || ''} onValueChange={setAttendance}>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="attending" id="attending" />
-                <Label htmlFor="attending">Confirmo asistencia</Label>
+              <div className="flex items-center space-x-2 mt-2">
+                <RadioGroupItem value="attending" id="attending"/>
+                <Label htmlFor="attending" className='text-sm font-semibold text-white'>Confirmo asistencia</Label>
               </div>
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 mt-2">
                 <RadioGroupItem value="not-attending" id="not-attending" />
-                <Label htmlFor="not-attending">No puedo participar</Label>
+                <Label htmlFor="not-attending" className='text-sm font-semibold text-white'>No puedo participar</Label>
               </div>
             </RadioGroup>
             {attendance === 'attending' && (
               <div>
-                <Label htmlFor="specialDiet">Comidas Especiales (opcional)</Label>
+                <Label htmlFor="specialDiet" className='text-white font-semibold'>Comidas Especiales (opcional)</Label>
                 <Textarea 
                   id="specialDiet" 
                   value={specialDiet} 
                   onChange={(e) => setSpecialDiet(e.target.value)}
                   placeholder="Ej: Vegetariano, diabético, hipertenso, etc."
+                  className='placeholder:text-[#4e6e5d] bg-white'
                 />
               </div>
             )}
             {attendance === 'not-attending' && (
               <div>
-                <Label htmlFor="reason">Motivo (opcional)</Label>
+                <Label htmlFor="reason" className='text-white font-semibold'>Motivo (opcional)</Label>
                 <Textarea 
                   id="reason" 
                   value={reason} 
                   onChange={(e) => setReason(e.target.value)}
                   placeholder="¿Por qué no puedes asistir?"
+                  className='placeholder:text-[#4e6e5d] bg-white'
                 />
               </div>
             )}
             <DialogFooter>
-              <AnimatedButton type="submit" className="w-full" disabled={!attendance}>
+              <AnimatedButton type="submit" className="w-full bg-[#EEEEEE] hover:bg-[#D9D9D9] text-[#4E6E5D] mt-10 rounded-full shadow-xl text-xl h-full font-semibold" disabled={!attendance}>
                 Confirmar
               </AnimatedButton>
             </DialogFooter>
