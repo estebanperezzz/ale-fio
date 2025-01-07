@@ -1,5 +1,5 @@
 "use client";
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { Card } from "@/components/ui/card"
 import { motion, useInView } from 'framer-motion'
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { Typography } from "@/components/ui/typography"
