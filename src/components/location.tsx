@@ -93,7 +93,7 @@ export default function Location() {
                                 
                                 <div className="text-[#4E6E5D] text-center text-xl space-y-2">
                                     <Typography variant="p">08 de Febrero de 2025</Typography>
-                                    <Typography variant="p">19:00 hs.</Typography>
+                                    <Typography variant="p">18:30 hs.</Typography>
                                     <Typography variant="p">Chacra La Martina</Typography>
                                     <Typography variant="p" className="mt-4">¡Te esperamos!</Typography>
                                 </div>

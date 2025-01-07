@@ -42,7 +42,7 @@ export default function GiftSection() {
     )
 
     return (
-        <Card className="w-full border-none rounded-none bg-gradient-to-r from-[#B76111] to-[#96410C] ">
+        <Card className="w-full border-none rounded-none bg-gradient-to-r from-[#B76111] to-[#F1AB6A] ">
             <CardContent className="py-24">
                 <div className="container mx-auto px-4 text-center text-[#EEEEEE]">
                     <Gift className="w-16 h-16 mx-auto mb-6" />
