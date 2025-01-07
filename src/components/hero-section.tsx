@@ -63,7 +63,7 @@ export default function HeroSection() {
                             src="/flowers.svg"
                             alt="Flower Frame"
                             fill
-                            className="object-cover md:rotate-0 rotate-90"
+                            className="object-cover md:rotate-0 rotate-180"
                             priority
                         />
                         <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
