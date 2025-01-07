@@ -1,6 +1,7 @@
 'use client'
 
-import { Gift } from 'lucide-react'
+import { useState } from 'react'
+import { Gift, Copy, Check } from 'lucide-react'
 import { Card, CardContent } from "@/components/ui/card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { Typography } from "@/components/ui/typography"
@@ -13,6 +14,33 @@ import {
 } from "@/components/ui/dialog"
 
 export default function GiftSection() {
+    const [copiedAccount, setCopiedAccount] = useState<string | null>(null)
+
+    const handleCopy = async (text: string) => {
+        try {
+            await navigator.clipboard.writeText(text)
+            setCopiedAccount(text)
+            setTimeout(() => setCopiedAccount(null), 2000)
+        } catch (err) {
+            console.error('Failed to copy text: ', err)
+        }
+    }
+
+    const CopyButton = ({ text }: { text: string }) => (
+        <AnimatedButton
+            variant="ghost"
+            size="icon"
+            className="ml-2"
+            onClick={() => handleCopy(text)}
+        >
+            {copiedAccount === text ? (
+                <Check className="h-4 w-4" />
+            ) : (
+                <Copy className="h-4 w-4" />
+            )}
+        </AnimatedButton>
+    )
+
     return (
         <Card className="w-full border-none rounded-none bg-gradient-to-r from-[#B76111] to-[#96410C] ">
             <CardContent className="py-24">
@@ -38,13 +66,19 @@ export default function GiftSection() {
                                     <div className="space-y-4">
                                         <div>
                                             <Typography variant="p" className="font-medium">Transferencias dentro de Santander</Typography>
-                                            <Typography variant="p" className="font-montserrat">Cuenta: 1204825005</Typography>
+                                            <div className="flex items-center">
+                                                <Typography variant="p" className="font-montserrat">Cuenta: 1204825005</Typography>
+                                                <CopyButton text="1204825005" />
+                                            </div>
                                             <Typography variant="p">Moneda: UYU</Typography>
                                             <Typography variant="p">Sucursal: 07 - Bvar. Artigas</Typography>
                                         </div>
                                         <div>
                                             <Typography variant="p" className="font-medium">Transferencias desde otros bancos</Typography>
-                                            <Typography variant="p" className="font-montserrat">Cuenta: 0007001204825005</Typography>
+                                            <div className="flex items-center">
+                                                <Typography variant="p" className="font-montserrat">Cuenta: 0007001204825005</Typography>
+                                                <CopyButton text="0007001204825005" />
+                                            </div>
                                             <Typography variant="p">Moneda: UYU</Typography>
                                         </div>
                                     </div>
@@ -55,13 +89,19 @@ export default function GiftSection() {
                                     <div className="space-y-4">
                                         <div>
                                             <Typography variant="p" className="font-medium">Transferencias dentro de Santander</Typography>
-                                            <Typography variant="p" className="font-montserrat">Cuenta: 5204991318</Typography>
+                                            <div className="flex items-center">
+                                                <Typography variant="p" className="font-montserrat">Cuenta: 5204991318</Typography>
+                                                <CopyButton text="5204991318" />
+                                            </div>
                                             <Typography variant="p">Moneda: USD</Typography>
                                             <Typography variant="p">Sucursal: 07 - Bvar. Artigas</Typography>
                                         </div>
                                         <div>
                                             <Typography variant="p" className="font-medium">Transferencias desde otros bancos</Typography>
-                                            <Typography variant="p" className="font-montserrat">Cuenta: 0007005204991318</Typography>
+                                            <div className="flex items-center">
+                                                <Typography variant="p" className="font-montserrat">Cuenta: 0007005204991318</Typography>
+                                                <CopyButton text="0007005204991318" />
+                                            </div>
                                             <Typography variant="p">Moneda: USD</Typography>
                                         </div>
                                     </div>
