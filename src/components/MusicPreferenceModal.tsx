@@ -80,18 +80,18 @@ export default function MusicPreferenceModal() {
             transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
             className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4 w-full max-w-md"
           >
-            <AnimatedButton
-              onClick={() => handlePreference(true)}
-              className="w-full bg-[#4e6e5d] hover:bg-[#445F51] rounded-full shadow-xl text-xl py-3 font-semibold text-white"
-            >
-              Con música
-            </AnimatedButton>
-            <AnimatedButton
-              onClick={() => handlePreference(false)}
-              className="w-full bg-[#B76111] hover:bg-[#96410C] rounded-full shadow-xl text-xl py-3 font-semibold text-white"
-            >
-              Sin música
-            </AnimatedButton>
+          <AnimatedButton
+            onClick={() => handlePreference(true)}
+            className="w-full bg-[#4e6e5d] hover:bg-[#445F51] rounded-full shadow-xl text-xl h-full font-semibold"
+          >
+            Con música
+          </AnimatedButton>
+          <AnimatedButton
+            onClick={() => handlePreference(false)}
+            className="w-full bg-[#B76111] hover:bg-[#96410C] rounded-full shadow-xl text-xl h-full font-semibold"
+          >
+            Sin música
+          </AnimatedButton>
           </motion.div>
         </div>
       </motion.div>
