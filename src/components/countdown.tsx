@@ -7,10 +7,10 @@ import { Typography } from "@/components/ui/typography";
 
 export default function Countdown() {
     const [timeLeft, setTimeLeft] = useState({
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
+        dias: 0,
+        horas: 0,
+        minutos: 0,
+        segundos: 0,
     });
 
     const ref = React.useRef(null);
@@ -23,16 +23,16 @@ export default function Countdown() {
             const difference = targetDate.getTime() - now.getTime();
 
             if (difference <= 0) {
-                setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+                setTimeLeft({ dias: 0, horas: 0, minutos: 0, segundos: 0 });
                 return;
             }
 
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-            const minutes = Math.floor((difference / 1000 / 60) % 60);
-            const seconds = Math.floor((difference / 1000) % 60);
+            const dias = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((difference / (1000 * 60 * 60)) % 24);
+            const minutos = Math.floor((difference / 1000 / 60) % 60);
+            const segundos = Math.floor((difference / 1000) % 60);
 
-            setTimeLeft({ days, hours, minutes, seconds });
+            setTimeLeft({ dias, horas, minutos, segundos });
         };
 
         const timer = setInterval(updateCountdown, 1000);
@@ -67,7 +67,7 @@ export default function Countdown() {
                 >
                     <motion.div variants={itemVariants}>
                         <Typography variant="h3" className="text-center text-[#EEEEEE] mb-4 sm:mb-6 md:mb-8 font-georgia">
-                            Bienvenidos a nuestra boda 😊
+                            Bienvenidos a nuestra boda
                         </Typography>
                     </motion.div>
                     <div className="flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-12 text-[#EEEEEE]">

@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Typography } from "@/components/ui/typography"
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
+import { X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { useSwipeable } from 'react-swipeable'
 
 const images = [
     '/_DSC4997.jpg',
@@ -25,9 +28,11 @@ const images = [
 ]
 
 export default function Us() {
-    // eslint-disable-next-line
+    //eslint-disable-next-line
     const [currentImageIndex, setCurrentImageIndex] = useState(0)
     const [visibleImages, setVisibleImages] = useState(images.slice(0, 8))
+    const [previewOpen, setPreviewOpen] = useState(false)
+    const [previewIndex, setPreviewIndex] = useState(0)
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -40,10 +45,32 @@ export default function Us() {
                 setVisibleImages(newVisibleImages)
                 return nextIndex
             })
-        }, 3000) // Change image every 3 seconds
+        }, 3000)
 
         return () => clearInterval(interval)
     }, [])
+
+    const openPreview = (index: number) => {
+        setPreviewIndex(index)
+        setPreviewOpen(true)
+    }
+
+    const closePreview = () => {
+        setPreviewOpen(false)
+    }
+
+    const nextImage = () => {
+        setPreviewIndex((prevIndex) => (prevIndex + 1) % images.length)
+    }
+
+    const prevImage = () => {
+        setPreviewIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length)
+    }
+
+    const handlers = useSwipeable({
+        onSwipedLeft: nextImage,
+        onSwipedRight: prevImage,
+    })
 
     return (
         <div className="w-full py-16 bg-white">
@@ -63,7 +90,8 @@ export default function Us() {
                                     duration: 0.5,
                                     ease: "easeInOut"
                                 }}
-                                className="aspect-square relative overflow-hidden rounded-lg"
+                                className="aspect-square relative overflow-hidden rounded-lg cursor-pointer"
+                                onClick={() => openPreview(images.indexOf(image))}
                             >
                                 <Image
                                     src={image}
@@ -77,6 +105,46 @@ export default function Us() {
                     </AnimatePresence>
                 </div>
             </div>
+            <Dialog open={previewOpen} onOpenChange={setPreviewOpen}>
+                <DialogContent className="max-w-[95vw] h-[90vh] p-0 bg-transparent border-none">
+                    <DialogTitle className="sr-only">Vista previa de imagen</DialogTitle>
+                    <div className="relative w-full h-full" {...handlers}>
+                        <button
+                            onClick={closePreview}
+                            className="absolute top-4 right-4 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-colors"
+                            aria-label="Cerrar vista previa"
+                        >
+                            <X size={24} />
+                        </button>
+                        <button
+                            onClick={prevImage}
+                            className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-colors"
+                            aria-label="Imagen anterior"
+                        >
+                            <ChevronLeft size={24} />
+                        </button>
+                        <button
+                            onClick={nextImage}
+                            className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-colors"
+                            aria-label="Siguiente imagen"
+                        >
+                            <ChevronRight size={24} />
+                        </button>
+                        <div className="relative w-full h-full flex items-center justify-center">
+                            <div className="relative w-full h-full">
+                                <Image
+                                    src={images[previewIndex]}
+                                    alt={`Vista previa ${previewIndex + 1}`}
+                                    fill
+                                    className="object-contain rounded-lg"
+                                    priority
+                                    sizes="95vw"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </DialogContent>
+            </Dialog>
         </div>
     )
 }

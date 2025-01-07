@@ -1,5 +1,4 @@
 "use client";
-import { Scroll, GlassWater } from 'lucide-react'
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { motion, useInView } from 'framer-motion'
 import { AnimatedButton } from "@/components/ui/animated-button"
@@ -39,7 +38,7 @@ export default function Location() {
                     <motion.div variants={itemVariants}>
                         <Card className="border-none bg-[#EEEEEE] shadow-none">
                             <CardHeader>
-                                <Scroll className="w-20 h-20 mx-auto text-[#4E6E5D] mb-2" />
+                                <div className="text-center text-6xl mb-2">📃</div>
                                 <Typography variant="h2" className="text-center text-[#203733] font-georgia">REGISTRO CIVIL</Typography>
                             </CardHeader>
                             <CardContent className="space-y-6">
@@ -64,7 +63,7 @@ export default function Location() {
                     <motion.div variants={itemVariants}>
                         <Card className="border-none bg-[#EEEEEE] shadow-none">
                             <CardHeader>
-                                <GlassWater className="w-20 h-20 mx-auto text-[#4E6E5D] mb-2" />
+                                <div className="text-center text-6xl mb-2">🥳🎉</div>
                                 <Typography variant="h2" className="text-center text-[#203733] font-georgia">CEREMONIA Y FIESTA</Typography>
                             </CardHeader>
                             <CardContent className="space-y-6">

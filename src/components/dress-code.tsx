@@ -33,13 +33,6 @@ export default function DressCode() {
         visible: { opacity: 1, y: 0 }
     };
 
-    const colors = [
-        { hex: '#b76111', name: 'Terracotta' },
-        { hex: '#96410C', name: 'Rust' },
-        { hex: '#A1B290', name: 'Sage' },
-        { hex: '#4E6E5D', name: 'Forest' },
-        { hex: '#203733', name: 'Dark Green' },
-    ]
 
     return (
         <div className="w-full py-16 bg-[#EEEEEE]">
@@ -80,23 +73,11 @@ export default function DressCode() {
                                         </DialogHeader>
                                         <div className="mt-4 space-y-4">
                                             <Typography variant="h3" className="text-[#4E6E5D] text-center">
-                                                Vestimenta formal, elegante
+                                                Vestimenta formal - elegante
                                             </Typography>
-                                            <p className="text-lg text-center text-red-500">
-                                            * Chicas no blanco
+                                            <p className="text-lg text-center text-[#445F51]">
+                                            Damas: Vestido largo, no blanco/beige Hombres: Traje, corbata/moño
                                             </p>
-                                            <Typography variant="h4" className="text-center text-[#203733] font-georgia mt-6">Paleta de Colores Sugerida</Typography>
-                                            <div className="flex justify-center space-x-4 mt-4">
-                                                {colors.map((color) => (
-                                                    <div key={color.hex} className="flex flex-col items-center">
-                                                        <div 
-                                                            className="w-10 h-10 rounded-full" 
-                                                            style={{ backgroundColor: color.hex }}
-                                                        ></div>
-                                                        <Typography variant="small" className="text-[#4E6E5D] mt-1 font-semibold">{color.name}</Typography>
-                                                    </div>
-                                                ))}
-                                            </div>
                                         </div>
                                     </DialogContent>
                                 </Dialog>
