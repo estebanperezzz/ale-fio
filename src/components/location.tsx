@@ -35,53 +35,74 @@ export default function Location() {
                     animate={isInView ? "visible" : "hidden"}
                     className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto"
                 >
-                    <motion.div variants={itemVariants}>
-                        <Card className="border-none bg-[#EEEEEE] shadow-none">
-                            <CardHeader>
+                    {/* Grid system for perfect alignment */}
+                    <motion.div variants={itemVariants} className="grid grid-rows-[auto_1fr_auto] h-full">
+                        <Card className="border-none bg-[#EEEEEE] shadow-none h-full">
+                            <div className="grid grid-rows-[auto_auto_1fr_auto] h-full">
+                                {/* Emoji Section - Aligned */}
                                 <div className="text-center text-6xl mb-2">📃</div>
-                                <Typography variant="h2" className="text-center text-[#203733] font-georgia">REGISTRO CIVIL</Typography>
-                            </CardHeader>
-                            <CardContent className="space-y-6">
-                                <div className="space-y-2 text-[#4E6E5D] text-center text-xl">
+                                
+                                {/* Title Section - Aligned */}
+                                <Typography variant="h2" className="text-center text-[#203733] font-georgia mb-6">
+                                    REGISTRO CIVIL
+                                </Typography>
+                                
+                                {/* Content Section - Aligned */}
+                                <div className="text-[#4E6E5D] text-center text-xl space-y-2">
                                     <Typography variant="p">07 de Febrero de 2025</Typography>
                                     <Typography variant="p">14:30 hs.</Typography>
                                     <Typography variant="p">Oficina 7</Typography>
-                                    <Typography variant="small" className="italic">Recibí debajo las indicaciones para llegar.</Typography>
+                                    <Typography variant="p" className="italic block mt-4">
+                                        Recibí debajo las indicaciones para llegar.
+                                    </Typography>
                                 </div>
-                                <Link href="https://maps.app.goo.gl/AjWPw17E3cSbWEe78" target='_blank'>
-                                <AnimatedButton 
-                                    variant="default"
-                                    className="w-full bg-[#4e6e5d] hover:bg-[#445F51] mt-10 rounded-full shadow-xl text-xl h-full font-semibold"
-                                >
-                                    LLEGAR AL REGISTRO CIVIL
-                                </AnimatedButton>
-                                </Link>
-                            </CardContent>
+                                
+                                {/* Button Section - Aligned */}
+                                <div className="mt-6">
+                                    <Link href="https://maps.app.goo.gl/AjWPw17E3cSbWEe78" target='_blank'>
+                                        <AnimatedButton 
+                                            variant="default"
+                                            className="w-full bg-[#4e6e5d] hover:bg-[#445F51] rounded-full shadow-xl text-xl h-full font-semibold"
+                                        >
+                                            LLEGAR AL REGISTRO CIVIL
+                                        </AnimatedButton>
+                                    </Link>
+                                </div>
+                            </div>
                         </Card>
                     </motion.div>
 
-                    <motion.div variants={itemVariants}>
-                        <Card className="border-none bg-[#EEEEEE] shadow-none">
-                            <CardHeader>
+                    <motion.div variants={itemVariants} className="grid grid-rows-[auto_1fr_auto] h-full">
+                        <Card className="border-none bg-[#EEEEEE] shadow-none h-full">
+                            <div className="grid grid-rows-[auto_auto_1fr_auto] h-full">
+                                {/* Emoji Section - Aligned */}
                                 <div className="text-center text-6xl mb-2">🥳🎉</div>
-                                <Typography variant="h2" className="text-center text-[#203733] font-georgia">CEREMONIA Y FIESTA</Typography>
-                            </CardHeader>
-                            <CardContent className="space-y-6">
-                                <div className="space-y-2 text-[#4E6E5D] text-center text-xl">
+                                
+                                {/* Title Section - Aligned */}
+                                <Typography variant="h2" className="text-center text-[#203733] font-georgia mb-6">
+                                    CEREMONIA Y FIESTA
+                                </Typography>
+                                
+                                {/* Content Section - Aligned */}
+                                <div className="text-[#4E6E5D] text-center text-xl space-y-2">
                                     <Typography variant="p">08 de Febrero de 2025</Typography>
                                     <Typography variant="p">19:00 hs.</Typography>
                                     <Typography variant="p">Chacra La Martina</Typography>
-                                    <Typography variant="p">¡Te esperamos!</Typography>
+                                    <Typography variant="p" className="mt-4">¡Te esperamos!</Typography>
                                 </div>
-                                <Link href="https://maps.app.goo.gl/SebZPSaugQC3tVvo7" target='_blank'>
-                                <AnimatedButton 
-                                    variant="default"
-                                    className="w-full bg-[#4e6e5d] hover:bg-[#445F51] mt-6 rounded-full shadow-xl text-xl h-full font-semibold"
-                                >
-                                    LLEGAR A LA CHACRA
-                                </AnimatedButton>
-                                </Link>
-                            </CardContent>
+                                
+                                {/* Button Section - Aligned */}
+                                <div className="mt-6">
+                                    <Link href="https://maps.app.goo.gl/SebZPSaugQC3tVvo7" target='_blank'>
+                                        <AnimatedButton 
+                                            variant="default"
+                                            className="w-full bg-[#4e6e5d] hover:bg-[#445F51] rounded-full shadow-xl text-xl h-full font-semibold"
+                                        >
+                                            LLEGAR A LA CHACRA
+                                        </AnimatedButton>
+                                    </Link>
+                                </div>
+                            </div>
                         </Card>
                     </motion.div>
                 </motion.div>

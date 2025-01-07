@@ -82,7 +82,7 @@ export default function HeroSection() {
                 </motion.div>
             </motion.div>
             <motion.div 
-                className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+                className="absolute bottom-8 left-0 right-0 flex justify-center items-center"
                 initial={{ opacity: 0, y: 0 }}
                 animate={{ 
                     opacity: [0, 1, 0],
