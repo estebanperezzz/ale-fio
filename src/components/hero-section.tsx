@@ -63,7 +63,7 @@ export default function HeroSection() {
                             src="/flowers.svg"
                             alt="Flower Frame"
                             fill
-                            className="object-cover md:rotate-0 rotate-180"
+                            className="object-cover md:rotate-0 rotate-90"
                             priority
                         />
                         <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
@@ -91,44 +91,18 @@ export default function HeroSection() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 2.7 }}
+                                className="max-w-2xl mx-auto"
                             >
-                                <Typography variant="h2" className="font-light tracking-widest font-montserrat text-2xl md:text-4xl">
-                                    Bienvenidos a nuestro casamiento
+                                <Typography variant="h3" className="font-light tracking-wide font-montserrat text-xl md:text-2xl lg:text-3xl mb-4">
+                                    &quot;Todo lo que es bueno y perfecto es un regalo que viene de parte de Dios, quien creó todas las luces de los cielos.&quot;
+                                </Typography>
+                                <Typography variant="h3" className="font-light italic tracking-wide font-montserrat text-lg md:text-xl lg:text-2xl">
+                                    Santiago 1:17
                                 </Typography>
                             </motion.div>
                         </div>
                     </motion.div>
                 </div>
-            </motion.div>
-
-            {/* Flowers-1 at bottom left */}
-            <motion.div
-                className="absolute -bottom-40 -left-40 w-[550px] h-[550px] md:w-48 md:h-48"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 3 }}
-            >
-                <Image
-                    src="/flowers-1.svg"
-                    alt="Decorative Flowers 1"
-                    fill
-                    className="object-contain"
-                />
-            </motion.div>
-
-            {/* Flowers-2 at top right */}
-            <motion.div
-                className="absolute -top-44 -right-44 w-[500px] h-[500px] md:w-48 md:h-48"
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 3 }}
-            >
-                <Image
-                    src="/flowers-2.svg"
-                    alt="Decorative Flowers 2"
-                    fill
-                    className="object-contain"
-                />
             </motion.div>
 
             <motion.div 
