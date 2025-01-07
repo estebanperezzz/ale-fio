@@ -67,7 +67,7 @@ export default function Countdown() {
                 >
                     <motion.div variants={itemVariants}>
                         <Typography variant="h3" className="text-center text-[#EEEEEE] mb-4 sm:mb-6 md:mb-8 font-georgia">
-                            Bienvenidos a nuestra boda
+                           ¡Faltan solo...!
                         </Typography>
                     </motion.div>
                     <div className="flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-12 text-[#EEEEEE]">

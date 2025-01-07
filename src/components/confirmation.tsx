@@ -53,11 +53,14 @@ export default function Confirmation() {
                                     <Typography variant="p">
                                         ¡Confirmanos tu asistencia!
                                     </Typography>
+                                    <Typography variant="p">
+                                        Confirmar asistencia antes del 27/01/2025
+                                    </Typography>
                                 </div>
                                 <Link href="http://wa.me/59895349057" target='_blank' rel="noopener noreferrer">
                                     <AnimatedButton 
                                         variant="default"
-                                        className="w-full bg-[#B76111] hover:bg-[#96410C] mt-10 rounded-full shadow-xl text-xl h-full font-semibold"
+                                        className="w-full bg-[#B76111] hover:bg-[#96410C] mt-5 rounded-full shadow-xl text-xl h-full font-semibold"
                                     >
                                         <span className="inline-flex items-center gap-2">
                                             <CheckCircle className="w-5 h-5" />
