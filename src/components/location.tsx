@@ -5,6 +5,7 @@ import { AnimatedButton } from "@/components/ui/animated-button"
 import { Typography } from "@/components/ui/typography"
 import React from 'react'
 import Link from 'next/link';
+import Image from 'next/image'
 
 export default function Location() {
     const ref = React.useRef(null);
@@ -35,19 +36,22 @@ export default function Location() {
                     animate={isInView ? "visible" : "hidden"}
                     className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto"
                 >
-                    {/* Grid system for perfect alignment */}
                     <motion.div variants={itemVariants} className="grid grid-rows-[auto_1fr_auto] h-full">
                         <Card className="border-none bg-[#EEEEEE] shadow-none h-full">
                             <div className="grid grid-rows-[auto_auto_1fr_auto] h-full">
-                                {/* Emoji Section - Aligned */}
-                                <div className="text-center text-6xl mb-2">📃</div>
+                                <div className="flex items-center justify-center h-24 mb-2">
+                                    <Image 
+                                        src="/paper.svg" 
+                                        alt="Registro Civil Icon" 
+                                        width={96} 
+                                        height={96}
+                                    />
+                                </div>
                                 
-                                {/* Title Section - Aligned */}
                                 <Typography variant="h2" className="text-center text-[#203733] font-georgia mb-6">
                                     REGISTRO CIVIL
                                 </Typography>
                                 
-                                {/* Content Section - Aligned */}
                                 <div className="text-[#4E6E5D] text-center text-xl space-y-2">
                                     <Typography variant="p">07 de Febrero de 2025</Typography>
                                     <Typography variant="p">14:30 hs.</Typography>
@@ -57,7 +61,6 @@ export default function Location() {
                                     </Typography>
                                 </div>
                                 
-                                {/* Button Section - Aligned */}
                                 <div className="mt-6">
                                     <Link href="https://maps.app.goo.gl/AjWPw17E3cSbWEe78" target='_blank'>
                                         <AnimatedButton 
@@ -75,15 +78,19 @@ export default function Location() {
                     <motion.div variants={itemVariants} className="grid grid-rows-[auto_1fr_auto] h-full">
                         <Card className="border-none bg-[#EEEEEE] shadow-none h-full">
                             <div className="grid grid-rows-[auto_auto_1fr_auto] h-full">
-                                {/* Emoji Section - Aligned */}
-                                <div className="text-center text-6xl mb-2">🥳🎉</div>
+                                <div className="flex items-center justify-center h-24 mb-2">
+                                    <Image 
+                                        src="/fest.svg" 
+                                        alt="Ceremonia y Fiesta Icon" 
+                                        width={96} 
+                                        height={96}
+                                    />
+                                </div>
                                 
-                                {/* Title Section - Aligned */}
                                 <Typography variant="h2" className="text-center text-[#203733] font-georgia mb-6">
                                     CEREMONIA Y FIESTA
                                 </Typography>
                                 
-                                {/* Content Section - Aligned */}
                                 <div className="text-[#4E6E5D] text-center text-xl space-y-2">
                                     <Typography variant="p">08 de Febrero de 2025</Typography>
                                     <Typography variant="p">19:00 hs.</Typography>
@@ -91,7 +98,6 @@ export default function Location() {
                                     <Typography variant="p" className="mt-4">¡Te esperamos!</Typography>
                                 </div>
                                 
-                                {/* Button Section - Aligned */}
                                 <div className="mt-6">
                                     <Link href="https://maps.app.goo.gl/SebZPSaugQC3tVvo7" target='_blank'>
                                         <AnimatedButton 
