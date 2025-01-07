@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { useMusicPreference } from '@/contexts/MusicContext'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 export default function MusicPreferenceModal() {
   const { setMusicPreference } = useMusicPreference()
@@ -21,27 +22,76 @@ export default function MusicPreferenceModal() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 shadow-3xl"
+      className="fixed inset-0 flex items-center justify-center z-50 w-screen h-screen"
     >
+      <div className="absolute inset-0 overflow-hidden">
+        <Image
+          src="/_DSC5047.jpg"
+          alt="Background"
+          fill
+          style={{ objectFit: 'cover' }}
+          quality={100}
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-l from-[#A1B290] to-[#4E6E5D] opacity-80"></div>
+      </div>
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        className="bg-[#445F51] p-8 rounded-lg shadow-xl text-center"
+        className="relative w-full h-full flex flex-col justify-center items-center"
       >
-        <h2 className="text-2xl font-bold mb-6 text-white">¿Quieres iniciar con música o sin música? 🎵</h2>
-        <div className="flex justify-center space-x-4">
+        <div className="relative z-10 p-8 text-center flex flex-col items-center">
+          <motion.div
+            initial={{ y: -50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            <Image
+              src="/logo.svg"
+              alt="Ale y Fio"
+              width={200}
+              height={200}
+              className="w-48 h-48 md:w-64 md:h-64 mb-8 invert"
+            />
+          </motion.div>
+
+          <motion.h1
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="text-4xl md:text-5xl font-bold mb-4 text-white"
+          >
+            Bienvenidos a la boda de Ale y Fio
+          </motion.h1>
+
+          <motion.h2
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="text-2xl md:text-3xl font-bold mb-8 text-white"
+          >
+            ¿Quieres iniciar con música o sin música?
+          </motion.h2>
+
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4 w-full max-w-md"
+          >
           <AnimatedButton
             onClick={() => handlePreference(true)}
             className="w-full bg-[#4e6e5d] hover:bg-[#445F51] rounded-full shadow-xl text-xl h-full font-semibold"
           >
-            Con música 🕺🏻
+            Con música
           </AnimatedButton>
           <AnimatedButton
             onClick={() => handlePreference(false)}
-            className="bg-[#B76111] hover:bg-[#96410C] w-full rounded-full shadow-xl text-xl h-full font-semibold"
+            className="w-full bg-[#B76111] hover:bg-[#96410C] rounded-full shadow-xl text-xl h-full font-semibold"
           >
-            Sin música 🥱
+            Sin música
           </AnimatedButton>
+          </motion.div>
         </div>
       </motion.div>
     </motion.div>
