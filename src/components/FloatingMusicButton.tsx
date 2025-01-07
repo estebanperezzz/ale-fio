@@ -72,7 +72,7 @@ export default function FloatingMusicButton() {
                         exit={{ opacity: 0, x: -50 }}
                         className="bg-black/70 text-white px-4 py-2 rounded-full flex items-center gap-2"
                     >
-                        <span className="whitespace-nowrap">Canción de amor</span>
+                        <span className="whitespace-nowrap">Canción de amor ❤️</span>
                         <ArrowRight className="h-4 w-4" />
                     </motion.div>
                 )}
