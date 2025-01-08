@@ -7,6 +7,7 @@ import DressCode from '@/components/dress-code'
 import Confirmation from '@/components/confirmation'
 import SongSuggestions from '@/components/song-suggestions'
 import { Separator } from '@/components/ui/separator'
+import CreatedBy from '@/components/created-by'
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Separator />
       <Confirmation />
       <SongSuggestions />
+      <CreatedBy />
     </main>
   )
 }

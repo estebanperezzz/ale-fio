@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { Gift, Copy, Check } from 'lucide-react'
+import { useState, useRef, useEffect, useCallback } from 'react'
+import { Copy, Check } from 'lucide-react'
 import { Card, CardContent } from "@/components/ui/card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { Typography } from "@/components/ui/typography"
@@ -12,6 +12,8 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
+import { Player } from '@lordicon/react';
+import ICON from '../../public/gift.json'
 
 export default function GiftSection() {
     const [copiedAccount, setCopiedAccount] = useState<string | null>(null)
@@ -41,11 +43,30 @@ export default function GiftSection() {
         </AnimatedButton>
     )
 
+    const playerRef = useRef<Player>(null);
+
+    const playAnimationWithDelay = useCallback(() => {
+        setTimeout(() => {
+            playerRef.current?.playFromBeginning();
+        }, 3000); // 5 seconds delay
+    }, []);
+  
+    useEffect(() => {
+        playerRef.current?.playFromBeginning();
+    }, [])
+
     return (
         <Card className="w-full border-none rounded-none bg-gradient-to-r from-[#B76111] to-[#F1AB6A] ">
             <CardContent className="py-24">
                 <div className="container mx-auto px-4 text-center text-[#EEEEEE]">
-                    <Gift className="w-16 h-16 mx-auto mb-6" />
+                    <div className='flex items-center justify-center w-full mb-6'>
+                        <Player 
+                            ref={playerRef} 
+                            icon={ICON}
+                            size={96}
+                            onComplete={playAnimationWithDelay}
+                        />
+                    </div>
                     <Typography variant="h2" className="mb-8 max-w-2xl mx-auto font-georgia">
                         Para poder colaborar con nosotros en esta noche tan especial te dejamos nuestros números de cuentas bancarias
                     </Typography>

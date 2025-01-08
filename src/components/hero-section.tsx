@@ -7,10 +7,27 @@ import { Typography } from "@/components/ui/typography";
 import { ChevronDown } from 'lucide-react';
 
 const images = [
-    "/_DSC5024.jpg",
-    "/_DSC5008.jpg",
-    "/_DSC5035.jpg",
-    "/_DSC5047.jpg",
+    '/PrebodaAle&Fio(100).jpg',
+    '/PrebodaAle&Fio(11).jpg',
+    '/PrebodaAle&Fio(112).jpg',
+    '/PrebodaAle&Fio(127).jpg',
+    '/PrebodaAle&Fio(152).jpg',
+    '/PrebodaAle&Fio(153).jpg',
+    '/PrebodaAle&Fio(169).jpg',
+    '/PrebodaAle&Fio(174).jpg',
+    '/PrebodaAle&Fio(181).jpg',
+    '/PrebodaAle&Fio(188).jpg',
+    '/PrebodaAle&Fio(19).jpg',
+    '/PrebodaAle&Fio(28).jpg',
+    '/PrebodaAle&Fio(32).jpg',
+    '/PrebodaAle&Fio(36).jpg',
+    '/PrebodaAle&Fio(47).jpg',
+    '/PrebodaAle&Fio(49).jpg',
+    '/PrebodaAle&Fio(5).jpg',
+    '/PrebodaAle&Fio(64).jpg',
+    '/PrebodaAle&Fio(73).jpg',
+    '/PrebodaAle&Fio(89).jpg',
+    '/PrebodaAle&Fio(96).jpg'
 ];
 
 export default function HeroSection() {
@@ -41,6 +58,7 @@ export default function HeroSection() {
                         fill
                         priority
                         className="object-cover opacity-80"
+                        quality={100}
                     />
                 </motion.div>
             </AnimatePresence>

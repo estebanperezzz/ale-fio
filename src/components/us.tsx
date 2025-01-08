@@ -9,23 +9,28 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useSwipeable } from 'react-swipeable'
 
 const images = [
-    '/_DSC4997.jpg',
-    '/_DSC4998.jpg',
-    '/_DSC5008.jpg',
-    '/_DSC5009.jpg',
-    '/_DSC5012.jpg',
-    '/_DSC5019.jpg',
-    '/_DSC5021.jpg',
-    '/_DSC5024.jpg',
-    '/_DSC5032.jpg',
-    '/_DSC5034.jpg',
-    '/_DSC5035.jpg',
-    '/_DSC5039.jpg',
-    '/_DSC5040.jpg',
-    '/_DSC5043.jpg',
-    '/_DSC5046.jpg',
-    '/_DSC5047.jpg'
-]
+    '/PrebodaAle&Fio(100).jpg',
+    '/PrebodaAle&Fio(11).jpg',
+    '/PrebodaAle&Fio(112).jpg',
+    '/PrebodaAle&Fio(127).jpg',
+    '/PrebodaAle&Fio(152).jpg',
+    '/PrebodaAle&Fio(153).jpg',
+    '/PrebodaAle&Fio(169).jpg',
+    '/PrebodaAle&Fio(174).jpg',
+    '/PrebodaAle&Fio(181).jpg',
+    '/PrebodaAle&Fio(188).jpg',
+    '/PrebodaAle&Fio(19).jpg',
+    '/PrebodaAle&Fio(28).jpg',
+    '/PrebodaAle&Fio(32).jpg',
+    '/PrebodaAle&Fio(36).jpg',
+    '/PrebodaAle&Fio(47).jpg',
+    '/PrebodaAle&Fio(49).jpg',
+    '/PrebodaAle&Fio(5).jpg',
+    '/PrebodaAle&Fio(64).jpg',
+    '/PrebodaAle&Fio(73).jpg',
+    '/PrebodaAle&Fio(89).jpg',
+    '/PrebodaAle&Fio(96).jpg'
+];
 
 export default function Us() {
     //eslint-disable-next-line
@@ -99,6 +104,7 @@ export default function Us() {
                                     fill
                                     className="object-cover hover:scale-110 transition-transform duration-500"
                                     sizes="(max-width: 768px) 50vw, 25vw"
+                                    quality={100}
                                 />
                             </motion.div>
                         ))}

@@ -27,7 +27,7 @@ export default function MusicPreferenceModal() {
     >
       <div className="absolute inset-0 overflow-hidden">
         <Image
-          src="/_DSC5024.jpg"
+          src="/PrebodaAle&Fio(100).jpg"
           alt="Background"
           fill
           style={{ objectFit: 'cover' }}

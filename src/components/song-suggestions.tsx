@@ -1,15 +1,30 @@
 "use client"
 
-import React from 'react'
-import { Music } from 'lucide-react'
+import React, { useRef, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { Typography } from "@/components/ui/typography"
 import { motion, useInView } from 'framer-motion'
+import Link from 'next/link'
+import { Player } from '@lordicon/react'
+import SONG_ICON from '../../public/song.json'
 
 export default function SongSuggestions() {
     const ref = React.useRef(null);
     const isInView = useInView(ref, { once: true });
+    const songIconRef = useRef<Player>(null);
+
+    const playAnimationWithDelay = useCallback(() => {
+        setTimeout(() => {
+            songIconRef.current?.playFromBeginning();
+        }, 2000); // 5 seconds delay
+    }, []);
+
+    useEffect(() => {
+        if (isInView) {
+            songIconRef.current?.playFromBeginning();
+        }
+    }, [isInView]);
 
     const containerVariants = {
         hidden: { opacity: 0, y: 50 },
@@ -29,7 +44,7 @@ export default function SongSuggestions() {
     };
 
     return (
-        <div className="w-full py-16 bg-gradient-to-r from-[#A1B290] to-[#203733]">
+        <div className="w-full py-16 bg-gradient-to-l from-[#A1B290] to-[#4E6E5D]">
             <div className="container mx-auto px-4">
                 <motion.div
                     ref={ref}
@@ -40,7 +55,14 @@ export default function SongSuggestions() {
                 >
                     <Card className="border-none bg-transparent shadow-none">
                         <CardHeader>
-                            <Music className="w-20 h-20 mx-auto text-[#EEEEEE] mb-2" />
+                            <div className="flex justify-center mb-2">
+                                <Player 
+                                    ref={songIconRef}
+                                    icon={SONG_ICON}
+                                    size={96}
+                                    onComplete={playAnimationWithDelay}
+                                />
+                            </div>
                             <Typography variant="h2" className="text-center text-[#EEEEEE] font-georgia">
                                 ¿QUÉ CANCIONES NO PUEDEN FALTAR?
                             </Typography>
@@ -52,12 +74,14 @@ export default function SongSuggestions() {
                                 </Typography>
                             </motion.div>
                             <motion.div variants={itemVariants}>
-                                <AnimatedButton 
-                                    variant="secondary"
-                                    className="w-full bg-[#EEEEEE] hover:bg-[#D9D9D9] text-[#4E6E5D] mt-10 rounded-full shadow-xl text-xl h-full font-semibold"
-                                >
-                                    SUGERIR CANCIÓN
-                                </AnimatedButton>
+                                <Link href="https://open.spotify.com/playlist/5cTIOReeGXciB5hzz9TIY5?si=Gg6hlTVeTYm2ixUCrHZeWg&pt=fe04b0a5e8053a32db3ce82fc9fad4ee&pi=iGbV-7gtSmOqn" target="_blank" rel="noopener noreferrer">
+                                    <AnimatedButton 
+                                        variant="secondary"
+                                        className="w-full bg-[#EEEEEE] hover:bg-[#D9D9D9] text-[#4E6E5D] mt-10 rounded-full shadow-xl text-xl h-full font-semibold"
+                                    >
+                                        SUGERIR CANCIÓN
+                                    </AnimatedButton>
+                                </Link>
                             </motion.div>
                         </CardContent>
                     </Card>

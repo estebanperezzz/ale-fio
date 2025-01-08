@@ -1,18 +1,32 @@
 "use client"
 
-import { useState } from 'react'
-import { CheckCircle } from 'lucide-react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { Typography } from "@/components/ui/typography"
 import { motion, useInView } from 'framer-motion'
 import React from 'react'
 import { ConfirmationModal } from './ConfirmationModal'
+import { Player } from '@lordicon/react'
+import CONFIRM_ICON from '../../public/confirm.json'
 
 export default function Confirmation() {
    const ref = React.useRef(null);
    const isInView = useInView(ref, { once: true });
    const [isModalOpen, setIsModalOpen] = useState(false);
+   const confirmIconRef = useRef<Player>(null);
+
+   const playAnimationWithDelay = useCallback(() => {
+       setTimeout(() => {
+           confirmIconRef.current?.playFromBeginning();
+       }, 3000); // 5 seconds delay
+   }, []);
+
+   useEffect(() => {
+       if (isInView) {
+           confirmIconRef.current?.playFromBeginning();
+       }
+   }, [isInView]);
 
    const containerVariants = {
        hidden: { opacity: 0 },
@@ -42,7 +56,14 @@ export default function Confirmation() {
                    <motion.div variants={itemVariants}>
                        <Card className="border-none bg-[#EEEEEE] shadow-none">
                            <CardHeader>
-                               <CheckCircle className="w-20 h-20 mx-auto text-[#4E6E5D] mb-2" />
+                               <div className="flex justify-center mb-2">
+                                   <Player 
+                                       ref={confirmIconRef}
+                                       icon={CONFIRM_ICON}
+                                       size={80}
+                                       onComplete={playAnimationWithDelay}
+                                   />
+                               </div>
                                <Typography variant="h2" className="text-center text-[#203733] font-georgia">
                                    CONFIRMACIÓN DE ASISTENCIA
                                </Typography>
@@ -62,7 +83,10 @@ export default function Confirmation() {
                                    onClick={() => setIsModalOpen(true)}
                                >
                                    <span className="inline-flex items-center gap-2">
-                                       <CheckCircle className="w-5 h-5" />
+                                       <Player 
+                                           icon={CONFIRM_ICON}
+                                           size={20}
+                                       />
                                        CONFIRMAR ASISTENCIA
                                    </span>
                                </AnimatedButton>

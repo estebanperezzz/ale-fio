@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -12,7 +13,7 @@ export default {
     extend: {
       fontFamily: {
         serif: ['Georgia', ...fontFamily.serif],
-        sans: ['Montserrat', ...fontFamily.sans],
+        sans: ['var(--font-poppins)', 'Montserrat', ...fontFamily.sans],
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -63,5 +64,6 @@ export default {
       }
     }
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;
+

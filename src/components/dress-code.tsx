@@ -1,11 +1,12 @@
 "use client"
 
-import { Shirt } from 'lucide-react'
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { motion, useInView } from 'framer-motion'
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { Typography } from "@/components/ui/typography"
-import React from 'react'
+import React, { useRef, useEffect, useCallback } from 'react'
+import { Player } from '@lordicon/react'
+import DRESS_ICON from '../../public/dress.json'
 import {
     Dialog,
     DialogContent,
@@ -17,6 +18,19 @@ import {
 export default function DressCode() {
     const ref = React.useRef(null);
     const isInView = useInView(ref, { once: true });
+    const dressIconRef = useRef<Player>(null);
+
+    const playAnimationWithDelay = useCallback(() => {
+        setTimeout(() => {
+            dressIconRef.current?.playFromBeginning();
+        }, 1000); // 5 seconds delay
+    }, []);
+
+    useEffect(() => {
+        if (isInView) {
+            dressIconRef.current?.playFromBeginning();
+        }
+    }, [isInView]);
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -33,7 +47,6 @@ export default function DressCode() {
         visible: { opacity: 1, y: 0 }
     };
 
-
     return (
         <div className="w-full py-16 bg-[#EEEEEE]">
             <div className="container mx-auto px-4">
@@ -47,13 +60,20 @@ export default function DressCode() {
                     <motion.div variants={itemVariants}>
                         <Card className="border-none bg-[#EEEEEE] shadow-none">
                             <CardHeader>
-                                <Shirt className="w-20 h-20 mx-auto text-[#4E6E5D] mb-2" />
+                                <div className="flex justify-center mb-2">
+                                    <Player 
+                                        ref={dressIconRef}
+                                        icon={DRESS_ICON}
+                                        size={80}
+                                        onComplete={playAnimationWithDelay}
+                                    />
+                                </div>
                                 <Typography variant="h2" className="text-center text-[#203733] font-georgia">DRESS CODE</Typography>
                             </CardHeader>
                             <CardContent className="space-y-6">
                                 <div className="space-y-2 text-[#4E6E5D] text-center text-xl">
                                     <Typography variant="p">Vestimenta formal</Typography>
-                                    <Typography variant="p">Elegante</Typography>
+                                    <Typography variant="p">Formal - Elegante</Typography>
                                     <Typography variant="small" className="italic">Más detalles a continuación.</Typography>
                                 </div>
                                 <Dialog>
