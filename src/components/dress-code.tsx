@@ -96,7 +96,9 @@ export default function DressCode() {
                                                 Vestimenta formal - elegante
                                             </Typography>
                                             <p className="text-lg text-center text-[#445F51]">
-                                            Damas: Vestido largo, no blanco/beige Hombres: Traje, corbata/moño
+                                            Damas: Vestido largo, no blanco/beige 
+                                            <br/>
+                                            Hombres: Traje, corbata/moño
                                             </p>
                                         </div>
                                     </DialogContent>
