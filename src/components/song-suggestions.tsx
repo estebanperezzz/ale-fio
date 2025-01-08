@@ -44,7 +44,7 @@ export default function SongSuggestions() {
     };
 
     return (
-        <div className="w-full py-16 bg-gradient-to-l from-[#A1B290] to-[#4E6E5D]">
+        <div className="w-full py-16 bg-gradient-to-l from-[#B76111] to-[#F1AB6A]">
             <div className="container mx-auto px-4">
                 <motion.div
                     ref={ref}
@@ -77,7 +77,7 @@ export default function SongSuggestions() {
                                 <Link href="https://open.spotify.com/playlist/5cTIOReeGXciB5hzz9TIY5?si=Gg6hlTVeTYm2ixUCrHZeWg&pt=fe04b0a5e8053a32db3ce82fc9fad4ee&pi=iGbV-7gtSmOqn" target="_blank" rel="noopener noreferrer">
                                     <AnimatedButton 
                                         variant="secondary"
-                                        className="w-full bg-[#EEEEEE] hover:bg-[#D9D9D9] text-[#4E6E5D] mt-10 rounded-full shadow-xl text-xl h-full font-semibold"
+                                        className="w-full bg-[#EEEEEE] hover:bg-[#D9D9D9] text-[#B76111] mt-10 rounded-full shadow-xl text-xl h-full font-semibold"
                                     >
                                         SUGERIR CANCIÓN
                                     </AnimatedButton>

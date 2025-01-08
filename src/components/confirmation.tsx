@@ -74,7 +74,7 @@ export default function Confirmation() {
                                        Esperamos que seas parte de esta gran celebración.
                                    </Typography>
                                    <Typography variant="p">
-                                       ¡Confirmanos tu asistencia!
+                                    Confirmar asistencia antes del 27/01/2025
                                    </Typography>
                                </div>
                                <AnimatedButton 
@@ -87,7 +87,7 @@ export default function Confirmation() {
                                            icon={CONFIRM_ICON}
                                            size={20}
                                        />
-                                       CONFIRMAR ASISTENCIA
+                                       ¡CONFIRMA TU ASISENCIA!
                                    </span>
                                </AnimatedButton>
                            </CardContent>

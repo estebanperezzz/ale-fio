@@ -154,6 +154,7 @@ export default function Location() {
                                    <Typography variant="p">08 de Febrero de 2025</Typography>
                                    <Typography variant="p">18:30 hs.</Typography>
                                    <Typography variant="p">Chacra La Martina</Typography>
+                                   <Typography variant="p" className="italic block mt-4">Por favor, ser puntuales, veremos el atardecer juntos.</Typography>
                                    <Typography variant="p" className="mt-4">¡Te esperamos!</Typography>
                                </div>
                                
