@@ -65,14 +65,14 @@ export default function Location() {
 
   const civilEventUrl = createCalendarUrl(
       'Civil Ale y Fio',
+      '20250207T134500',
       '20250207T143000',
-      '20250207T153000',
       'Oficina 7'
   );
 
   const ceremonyEventUrl = createCalendarUrl(
       'Ceremonia Ale y Fio',
-      '20250208T190000',
+      '20250208T183000',
       '20250209T000000',
       'Chacra La Martina'
   );
@@ -105,10 +105,12 @@ export default function Location() {
                                
                                <div className="text-[#4E6E5D] text-center text-xl space-y-2">
                                    <Typography variant="p">07 de Febrero de 2025</Typography>
-                                   <Typography variant="p">14:30 hs.</Typography>
+                                   <Typography variant="p">13:45 hs.</Typography>
                                    <Typography variant="p">Oficina 7</Typography>
                                    <Typography variant="p" className="italic block mt-4">
-                                       Recibí debajo las indicaciones para llegar.
+                                       Capacidad del Registro Civil: 30 personas.
+                                       <br/>
+                                       Priorizaremos a la familia
                                    </Typography>
                                </div>
                                
