@@ -110,7 +110,7 @@ export default function Location() {
                                    <Typography variant="p" className="italic block mt-4">
                                        Capacidad del Registro Civil: 30 personas.
                                        <br/>
-                                       Priorizaremos a la familia
+                                       Priorizaremos a la familia😊
                                    </Typography>
                                </div>
                                
