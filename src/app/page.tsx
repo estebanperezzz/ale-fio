@@ -1,28 +1,23 @@
-import HeroSection from '@/components/hero-section'
-import Countdown from '@/components/countdown'
-import Location from '@/components/location'
-import Us from '@/components/us'
-import GiftSection from '@/components/gift'
-import DressCode from '@/components/dress-code'
-import Confirmation from '@/components/confirmation'
-import SongSuggestions from '@/components/song-suggestions'
-import { Separator } from '@/components/ui/separator'
-import CreatedBy from '@/components/created-by'
+import HeroSection from "@/components/hero-section";
+import Us from "@/components/us";
+import GiftSection from "@/components/gift";
+import CreatedBy from "@/components/created-by";
+import PhotoShare from "@/components/photos";
 
 export default function Home() {
   return (
     <main>
       <HeroSection />
-      <Countdown />
-      <Location />
+      {/* <Countdown /> */}
+      {/* <Location /> */}
+      <PhotoShare />
       <Us />
       <GiftSection />
-      <DressCode />
-      <Separator />
+      {/* <DressCode /> */}
+      {/* <Separator />
       <Confirmation />
-      <SongSuggestions />
+      <SongSuggestions /> */}
       <CreatedBy />
     </main>
-  )
+  );
 }
-
